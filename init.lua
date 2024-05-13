@@ -609,6 +609,7 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
         'black', -- Used to format Python code
         'ruff', -- Used to lint Python code
+        'prettier', -- Used to format js, json ...
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -648,12 +649,14 @@ require('lazy').setup({
         -- languages here or re-enable it for the disabled ones.
         local disable_filetypes = { c = true, cpp = true }
         return {
-          timeout_ms = 500,
+          timeout_ms = 2500,
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        python = { 'black' },
+        json = { 'prettier' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
