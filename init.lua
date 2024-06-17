@@ -156,6 +156,10 @@ vim.opt.scrolloff = 10
 
 vim.opt.tabstop = 4
 
+vim.opt.showmatch = true
+vim.opt.matchtime = 1
+vim.opt.matchpairs:append '<:>'
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
