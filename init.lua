@@ -243,6 +243,22 @@ require('lazy').setup({
   --  This is equivalent to:
   --    require('Comment').setup({})
 
+  --  インデントガイドを表示するプラグイン
+  {
+    'shellRaining/hlchunk.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = function()
+      require('hlchunk').setup {
+        chunk = {
+          enable = true,
+          duration = 100,
+          delay = 100,
+        },
+        indent = { enable = true },
+        line_num = { enable = true },
+      }
+    end,
+  },
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
