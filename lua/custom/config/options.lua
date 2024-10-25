@@ -73,3 +73,8 @@ vim.opt.tabstop = 4
 vim.opt.showmatch = true
 vim.opt.matchtime = 1
 vim.opt.matchpairs:append '<:>'
+
+-- Transparent
+vim.opt.termguicolors = true
+vim.opt.winblend = 0 -- ウィンドウの不透明度
+vim.opt.pumblend = 0 -- ポップアップメニューの不透明度
