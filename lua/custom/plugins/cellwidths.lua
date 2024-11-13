@@ -1,4 +1,4 @@
-return {
+local config = {
   {
     'delphinus/cellwidths.nvim',
     config = function()
@@ -9,3 +9,5 @@ return {
     end,
   },
 }
+
+return config

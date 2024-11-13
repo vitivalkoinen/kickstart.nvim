@@ -52,7 +52,12 @@ local config = { -- LSP Configuration & Plugins
         --
         -- In this case, we create a function that lets us more easily define mappings specific
         -- for LSP related items. It sets the mode, buffer and description for us each time.
-        local map = function(keys, func, desc) end
+        local map = function(keys, func, desc)
+          vim.keymap.set('n', keys, func, {
+            buffer = event.buf,
+            desc = 'LSP: ' .. desc,
+          })
+        end
 
         -- Jump to the definition of the word under your cursor.
         --  This is where a variable was first declared, or where a function is defined, etc.
@@ -154,6 +159,9 @@ local config = { -- LSP Configuration & Plugins
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
       clangd = {
+        capabilities = {
+          offsetEncoding = { 'utf-16' },
+        },
         cmd = {
           'clangd',
           '--enable-config',
