@@ -6,14 +6,18 @@ local config = {
     'nvimtools/none-ls.nvim',
   },
   config = function()
+    require('mason').setup()
     require('mason-null-ls').setup {
       ensure_installed = {
         'prettier',
         'stylua',
         'spell',
       },
-      automatic_installation = true,
+      automatic_installation = false,
       handlers = {},
+    }
+    require('null-ls').setup {
+      source = {},
     }
   end,
 }
